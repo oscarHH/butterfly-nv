@@ -1,0 +1,42 @@
+{
+    "Comentarios": [
+        {
+            "Comentario": "c",
+            "Label":"star"
+        },
+        {
+            "Comentario": "b",
+            "Label":"star"
+        },
+        {
+            "Comentario": "a",
+            "Label":"star"
+        }
+    ],
+    "Imagenes": [
+      {
+          "Ruta": "images/holi.png",
+          "Variable1": "sylvie",
+          "Variable2": "smile"
+      },
+        {
+            "Ruta": "images/bg.jpg",
+            "Variable1": "bg",
+            "Variable2": "meadow"
+        }
+
+    ],
+    "Personajes": [
+        {
+            "Color": "#c8ffc8",
+            "Nombre": "Eileen",
+            "Variable": "e"
+        },
+        {
+            "Color": "#c8c8ff",
+            "Nombre": "Sylvie",
+            "Variable": "s"
+        }
+    ],
+    "Titulo": "Novela de prueba"
+}
