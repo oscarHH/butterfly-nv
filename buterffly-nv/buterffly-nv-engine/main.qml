@@ -1,89 +1,45 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
-import QtMultimedia 5.4
 import QtGraphicalEffects 1.0
 import QtMultimedia 5.4
 
 import FileIO 1.0
-import "menu" as My
 
-
-
-import "evaluarHistoria.js" as EvaluarHistoria
-import "manejoCadena.js" as ManejoCadenas
+import "JS/evaluarHistoria.js" as EvaluarHistoria
+import "JS/manejoCadena.js" as ManejoCadenas
 
 
 
 Window {
+    //propiedades
+    property int val: 0 //incrementa cada vez que se da un click
+
+    property string positionx: ""
+    id:root
+    visible: true
+    width: 890
+    height:665
+
+
 
     MediaPlayer{
         id:musica
     }
 
-
-    //variables globales
-    property int val: 0 //incrementa cada vez que se da un click
-    property string positionx: ""
-    id:root
-    visible: true
-
-
-    //minimumWidth:  890
-    //minimumHeight: 665
-    //maximumWidth: 800
-    //maximumHeight: 600
-    width: 890
-    height:665
-
-/*    Column {
-        Ejemplo{width: 50; height:50 }
-    }
-*/
-
-
-    /*My.MenuButerfly{
-            anchors.fill: parent
-            texto:"hola"
-            colorfondo:"#695640"
-    }*/
-
-
-    /*Rectangle{
-        height: parent.height
-        width: parent.width
-        color:"black"
-    }*/
-
-    /*Rectangle{
-        width: parent.width; height: parent.height
-        color:"black"
-
-        Grid{
-            id:rent
-            x:0; y:0
-            rows: 125; columns:75; spacing: 0
-            Repeater { model: 3000
-                Rectangle {
-                    width: 30; height: 30
-                    color:{
-                        if(index%2 === 0){
-                            console.log(rent.columns)
-                           return "#c8c5c6"
-                        }else{
-                          return "#a2a2a2"
-                        }
-                    }
-            }
-        }*/
-
-
-
-
-
-
     //contenedor
     Rectangle {
-        //visible: false
+        focus: true
+        Keys.onPressed: {
+              if ((event.key === Qt.Key_Escape) ){
+                  createItem()
+              }
+       }
+
+
+
+
+        visible:true
+        //cuadricula
         ShaderEffect {
             anchors.fill: parent
             property real tileSize: 16
@@ -108,7 +64,6 @@ Window {
                 "
         }
 
-        //   visible: false
         id: rect
         width: parent.width
         height: parent.height
@@ -122,7 +77,6 @@ Window {
                 anchors.fill: parent
                 onClicked: { runJS();}
             }
-            //source:"file:///C:/Users/h2o/Desktop/renpy-6.99.4-sdk/the_question/game/uni.jpg"
         }
 
 
@@ -138,22 +92,11 @@ Window {
             //Component.onCompleted: Evaluador.evaluarjs( file.read("guardar.json") );
         }
 
-
-
         //imagen del personaje
         Image{
             id: img2
-            //source: ""
-
-            //width: sourceSize.width
-            //height:  parent.height
-            //width:
             width: {(sourceSize.width *  parent.width) / 800}
-
             height: {(sourceSize.height *  parent.height) / 600}
-
-
-            //fillMode: Image.PreserveAspectFit
 
             x:{
                 switch(positionx){
@@ -164,10 +107,6 @@ Window {
                 }
             }
             y:parent.height - img2.height
-            //anchors.top: parent.top
-            //anchors.bottom: parent.bottom
-            //anchors.horizontalCenter: parent.horizontalCenter
-            //anchors.verticalCenter: parent.verticalCenter
             visible: true
         }
 
@@ -198,12 +137,12 @@ Window {
                 }
             }
             //animacion del video
-            PropertyAnimation on x{
+            /*PropertyAnimation on x{
                 easing.type: Easing.InOutQuad
                 from:0
                 to: root.width-400
                 duration:2000
-            }
+            }*/
         }
         //contenedor de dialogos
         Rectangle{
@@ -241,7 +180,6 @@ Window {
                         rectaux.height/20
                     }
                 }
-                //"esto es un ejemplo ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssb a b c"
                 property var cadenaMostrar: {""}
                 text:{cadenaMostrar}
 
@@ -250,30 +188,39 @@ Window {
                 font.bold: true
                 style: Text.Sunken
                 font.pixelSize: parent.width/35
-                //height: {(sourceSize.height *  parent.height) / 600}
                 color:"white"
             }
         }
-
-
     }
 
     /**
   Funciones para el progrma
 */
-    //carga las funciones
-    Component.onCompleted: {
-        //Evaluador.evaluarjs( file.read("guardar.json") );
-        EvaluarHistoria.tipo(file.read("historia.json"));
-        title = EvaluarHistoria.nombrenovela()
-        runJS();
+
+    //leer desde otro documento
+    function createItem() {
+        var remplaza = Direccion
+        var rem =remplaza.replace("file:///","")
+        var an = Qt.createQmlObject(file.read(rem+"/buterffly-nv-engine/Len.qml"), root, "reb");
     }
 
 
+
+    //carga las funciones
+    Component.onCompleted: {
+        createItem()
+        EvaluarHistoria.tipo(file.read("Historia/historia.json"));
+        title = EvaluarHistoria.nombrenovela()
+        console.log(EvaluarHistoria.analizarLabels())
+		print ("tamaños "+EvaluarHistoria.tamaniLabels())
+        runJS();
+    }
+
+    //property int respaldo: 0
     //funcion de la historia
     function runJS() {
         var totalHistorias = EvaluarHistoria.totalContenido()
-        console.log(totalHistorias)
+        //console.log(totalHistorias)
         //console.log("var a: " + val);
         if(val < totalHistorias){
             var instrucciones = EvaluarHistoria.contenido(val)
@@ -283,22 +230,26 @@ Window {
                 runJS()
                 val--
                 break
+
             case "Personaje":
                 textNombrePersonaje.visible=true
                 textNombrePersonaje.color = instrucciones.Color
                 textNombrePersonaje.text = instrucciones.Personaje
                 textDial.text = instrucciones.Texto
                 break
+
             case "Narrador":
                 textNombrePersonaje.visible=false
-                textDial.text = instrucciones.Narrador
+                textDial.text = ManejoCadenas.calculaCadena(instrucciones.Narrador)
                 break
+
             case "Fondo":
                 imgFondo.source = Direccion+instrucciones.Ruta
                 val++
                 runJS()
                 val--
                 break
+
             case "ImagenPersonaje":
                 img2.visible=true;
                 img2.source = Direccion+instrucciones.Ruta
@@ -313,7 +264,6 @@ Window {
                 val++
                 runJS()
                 val--
-
                 break
 
             case "OcultarPersonaje":
@@ -322,6 +272,7 @@ Window {
                 runJS()
                 val--
                 break
+
             case "Musica":
                 musica.autoPlay=true
                 if(instrucciones.Infinito === true){
@@ -334,29 +285,56 @@ Window {
                 val++
                 runJS()
                 val--
-
                 break
+
             case "DetenerMusica":
                 musica.stop()
                 val++
                 runJS()
                 val--
                 break
+
             case "Sonido":
                 musica.play()
-
                 musica.loops=0
                 musica.source= Direccion +instrucciones.Ruta
                 break
+
             case "Menu":
                 var tamanio = instrucciones.Contenido.length
+
                 console.log(tamanio)
                 break
+
+             case "Saltar":
+                var respaldo = 0
+                 var saltaren = instrucciones.Saltar
+                 console.log(saltaren)
+                 while(true){
+                        console.log("valor: " + respaldo)
+                       if(EvaluarHistoria.tipoDato(respaldo) === "Label"){
+                            if(EvaluarHistoria.contenido(respaldo).Label === saltaren){
+
+                               if (totalHistorias > respaldo){
+                                    val = respaldo
+                                    val++
+                                    runJS()
+                                    val--;
+
+                                }
+                                break
+                            }
+                       }
+                           respaldo++
+                    }
+                 break
+
             default:
+
                 break
+
             }
             val++
         }
     }
 }
-
