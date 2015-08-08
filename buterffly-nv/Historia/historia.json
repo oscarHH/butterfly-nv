@@ -1,168 +1,325 @@
 {
-  "Historia": [
-    {
-      "Tipo": "Label",
-      "Label": "star",
-      "Ruta": ""
-    },
-    {
-      "Tipo": "Musica",
-      "Ruta": "/Historia/illurock.ogg",
-      "Infinito": true
-    },
-    {
-      "Tipo": "Fondo",
-      "Ruta": "/Historia/lecturehall.jpg",
-      "Nombre": "bg"
+    "Historia" : [{
+            "Tipo" : "Label",
+            "Label" : "star",
+            "Ruta" : ""
+        }, {
+            "Tipo" : "Musica",
+            "Ruta" : "/Historia/illurock.ogg",
+            "Infinito" : true
+        }, {
+            "Tipo" : "Fondo",
+            "Ruta" : "/Historia/lecturehall.jpg",
+            "Nombre" : "bg"
 
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "Well, professor Eileen's lecture was interesting."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "But to be honest, I couldn't concentrate on it very much."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "I had a lot of other thoughts on my mind."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "And they all ended up with a question."
-    },
-    
-    {
-      "Tipo": "Narrador",
-      "Narrador": "A question, I've been meaning to ask someone."
-    },
-    {
-      "Tipo": "Fondo",
-      "Ruta": "/historia/uni.jpg",
-      "Nombre": "bg"
-
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "When we came out of the university, I saw her."
-    },
-    {
-      "Tipo": "ImagenPersonaje",
-      "Ruta": "/historia/sylvie_normal.png",
-      "Posicion": ""
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "She was a wonderful person."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "I've known her ever since we were children."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "And she's always been a good friend."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "But..."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "Recently..."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "I think..."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "... that I wanted more."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "More just talking... more than just walking home together when our classes ended."
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "And I decided..."
-    },
-    {
-      "Tipo": "Menu",
-      "Contenido": [
-        {
-          "Texto": "... to ask her right away.",
-          "Saltar": "rightaway"
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "Well, professor Eileen's lecture was interesting."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "But to be honest, I couldn't concentrate on it very much."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "I had a lot of other thoughts on my mind."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "And they all ended up with a question."
         },
         {
-          "Texto": "... to ask her right away.",
-          "Saltar": "rightaway"
-        }
-      ]
+            "Tipo" : "Narrador",
+            "Narrador" : "A question, I've been meaning to ask someone."
+        }, {
+            "Tipo" : "Fondo",
+            "Ruta" : "/historia/uni.jpg",
+            "Nombre" : "bg"
 
-    },
-    {
-      "Tipo": "Personaje",
-      "Personaje": "uzumi",
-      "Color": "#c8ffc8",
-      "Texto": "Hola soy uzumi 01"
-    },
-    {
-      "Tipo": "Personaje",
-      "Personaje": "uzumi",
-      "Color": "#29bea5",
-      "Texto": "Hola soy uzumi 02"
-    },
-    {
-      "Tipo": "ImagenPersonaje",
-      "Ruta": "/historia/sylvie_normal.png",
-      "Posicion": "left"
-    },
-    {
-      "Tipo": "ImagenPersonaje",
-      "Ruta": "/historia/sylvie_normal.png",
-      "Posicion": ""
-    },
-    {
-      "Tipo": "OcultarPersonaje"
-    },
-    {
-      "Tipo": "ImagenPersonaje",
-      "Ruta": "/historia/sylvie_normal.png",
-      "Posicion": "center"
-    },
-    {
-      "Tipo": "Label",
-      "Label": "segundo",
-      "Ruta": "c"
-    },
-    {
-      "Tipo": "Personaje",
-      "Personaje": "uzumi",
-      "Color": "#29bea5",
-      "Texto": "Hola soy uzumi final"
-    },
-    {
-      "Tipo": "Fondo",
-      "Ruta": "/historia/lecturehall.jpg",
-      "Nombre": "bg"
-    },
-    {
-      "Tipo": "DetenerMusica"
-    },
-    {
-      "Tipo": "Sonido",
-      "Ruta": "/historia/illurock.ogg",
-    },
-    {
-      "Tipo": "Narrador",
-      "Narrador": "xD saltaste "
-    },
-    {
-      "Tipo": "Saltar",
-      "Saltar": "star",
-    }
-  ],
- "Titulo": "Version pre-alpha :s"
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "When we came out of the university, I saw her."
+        }, {
+            "Tipo" : "ImagenPersonaje",
+            "Ruta" : "/historia/sylvie_normal.png",
+            "Posicion" : ""
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "She was a wonderful person."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "I've known her ever since we were children."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "And she's always been a good friend."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "But..."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "Recently..."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "I think..."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "... that I wanted more."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "More just talking... more than just walking home together when our classes ended."
+        }, {
+            "Tipo" : "Narrador",
+            "Narrador" : "And I decided..."
+        }, {
+            "Tipo" : "Menu",
+            "Contenido" : [{
+                    "Texto" : "... to ask her right away.",
+                    "Saltar" : "rightaway"
+                }, {
+                    "Texto" : "... to ask her later.",
+                    "Saltar" : "later"
+                }
+            ]
+
+        },
+
+        {
+            "Tipo" : "Label",
+            "Label" : "rightaway",
+            "Ruta" : ""
+        },
+
+        {
+            "Tipo" : "ImagenPersonaje",
+            "Ruta" : "/historia/sylvie_smile.png",
+            "Posicion" : ""
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "Oh, hi, do we walk home together?"
+        },
+
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "yes"
+        },
+
+        {
+            "Tipo" : "Narrador",
+            "Narrador" :  "I said and my voice was already shaking."
+        },
+
+
+        {
+            "Tipo" : "Fondo",
+            "Ruta" : "/Historia/meadow.jpg",
+            "Nombre" : "bg"
+
+        },
+
+        {
+            "Tipo" : "Narrador",
+            "Narrador" :  "We reached the meadows just outside our hometown."
+        },
+        {
+            "Tipo" : "Narrador",
+            "Narrador" :  "Autumn was so beautiful here."
+        },
+        {
+            "Tipo" : "Narrador",
+            "Narrador" :  "When we were children, we often played here."
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "Hey... ummm..."
+        },
+
+        {
+            "Tipo" : "ImagenPersonaje",
+            "Ruta" : "/historia/sylvie_smile.png",
+            "Posicion" : ""
+        },
+
+        {
+            "Tipo":"OcultarPersonaje"
+        },
+        {
+            "Tipo"  : "Narrador",
+            "Narrador":"She turned to me and smiled."
+        },
+        {
+            "Tipo"  : "Narrador",
+            "Narrador":"I'll ask her..."
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "Ummm... will you..."
+        },
+
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "Will you be my artist for a visual novel?"
+        },
+
+        {
+            "Tipo" : "ImagenPersonaje",
+            "Ruta" : "/historia/sylvie_surprised.png",
+            "Posicion" : ""
+        },
+        {
+            "Tipo"  : "Narrador",
+            "Narrador":"Silence."
+        },
+        {
+            "Tipo"  : "Narrador",
+            "Narrador": "She is shocked. And then..."
+        },
+        {
+            "Tipo" : "ImagenPersonaje",
+            "Ruta" : "/historia/sylvie_smile.png",
+            "Posicion" : ""
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "Sure, but what is a \"visual novel?\""
+        },
+        {
+            "Tipo" : "Menu",
+            "Contenido" : [{
+                    "Texto" :"It's a story with pictures.",
+                    "Saltar" : "vn"
+                }, {
+                    "Texto" :"It's a hentai game.",
+                    "Saltar" : "hentai"
+                }
+            ]
+
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "It's a story with pictures and music."
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "And you'll be able to make choices that influence the outcome of the story."
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "So it's like those choose-your-adventure books?"
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "Exactly! I plan on making a small romantic story."
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "And I figured you could help me... since I know how you like to draw."
+        },
+
+        {
+            "Tipo" : "ImagenPersonaje",
+            "Ruta" : "/historia/sylvie_normal.png",
+            "Posicion" : ""
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "Well, I can try. I hope I don't disappoint you."
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "You can't disappoint me, you know that."
+        },
+        {
+                    "Tipo":"Saltar",
+                    "Saltar":"marry"
+        }
+        ,
+
+        {
+          "Tipo" : "Label",
+          "Label" : "hentai",
+          "Ruta" :""
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "Why it's a game with lots of sex."
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "You mean, like a boy's love game?"
+        },
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "I've always wanted to make one of those."
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "silvie",
+            "Color" : "#c8ffc8",
+            "Texto" : "I'll get right on it!"
+        },
+        {
+            "Tipo":"OcultarPersonaje"
+        },
+        {
+            "Tipo"  : "Narrador",
+            "Narrador": "..."
+        },
+
+        {
+            "Tipo" : "Personaje",
+            "Personaje" : "Me",
+            "Color" : "#c8c8ff",
+            "Texto" : "That wasn't what I meant!"
+        },
+        {
+                    "Tipo":"Saltar",
+                    "Saltar":"marry"
+        }
+        ,
+
+        {
+            "Tipo" : "Fin",
+        }
+    ],
+    "Titulo" : "Version pre-alpha :s"
 }

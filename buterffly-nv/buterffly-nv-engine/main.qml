@@ -2,43 +2,52 @@ import QtQuick 2.5
 import QtQuick.Window 2.2
 import QtGraphicalEffects 1.0
 import QtMultimedia 5.4
+import QtQuick.Layouts 1.2
 
 import FileIO 1.0
 
 import "JS/evaluarHistoria.js" as EvaluarHistoria
 import "JS/manejoCadena.js" as ManejoCadenas
-
+import "menuPrincipal"
+import "menuJuego"
 
 
 Window {
-    //propiedades
     property int val: 0 //incrementa cada vez que se da un click
-
     property string positionx: ""
+
     id:root
     visible: true
     width: 890
     height:665
 
 
-
+    //reproductor de audio
     MediaPlayer{
         id:musica
     }
 
-    //contenedor
+    //menu del juego
+    Rin{
+        id:menuLen
+        visible: true
+    }
+
+    //contenedor del juego
     Rectangle {
+        id: rect
+        visible:false
         focus: true
+        width: parent.width
+        height: parent.height
+
+        //deteccion de teclas
         Keys.onPressed: {
-              if ((event.key === Qt.Key_Escape) ){
-                  createItem()
-              }
-       }
+            if ((event.key === Qt.Key_Escape) ){
+                menusalir.visible=true
+            }
+        }
 
-
-
-
-        visible:true
         //cuadricula
         ShaderEffect {
             anchors.fill: parent
@@ -64,9 +73,8 @@ Window {
                 "
         }
 
-        id: rect
-        width: parent.width
-        height: parent.height
+
+
         //imagen de fondo
         Image{
             id : imgFondo
@@ -78,6 +86,8 @@ Window {
                 onClicked: { runJS();}
             }
         }
+
+
 
 
         /*Text {
@@ -193,27 +203,36 @@ Window {
         }
     }
 
-    /**
-  Funciones para el progrma
-*/
+
+    Menu{
+        id:menucasos
+        visible:false
+    }
+
+    Salir{
+        id:menusalir
+        visible:false
+    }
+
+
 
     //leer desde otro documento
     function createItem() {
-        var remplaza = Direccion
-        var rem =remplaza.replace("file:///","")
-        var an = Qt.createQmlObject(file.read(rem+"/buterffly-nv-engine/Len.qml"), root, "reb");
+
+        //var remplaza = Direccion
+        //var rem =remplaza.replace("file:///","")
+        //var an = Qt.createQmlObject(file.read(rem+"/buterffly-nv-engine/Len.qml"), root, "reb");
     }
 
 
 
     //carga las funciones
     Component.onCompleted: {
-        createItem()
+        //createItem()
         EvaluarHistoria.tipo(file.read("Historia/historia.json"));
         title = EvaluarHistoria.nombrenovela()
         console.log(EvaluarHistoria.analizarLabels())
-		print ("tamaños "+EvaluarHistoria.tamaniLabels())
-        runJS();
+        //runJS();
     }
 
     //property int respaldo: 0
@@ -302,39 +321,49 @@ Window {
 
             case "Menu":
                 var tamanio = instrucciones.Contenido.length
+                rectaux.visible=false
 
-                console.log(tamanio)
+                for(var i=0; i<tamanio; i++){
+                    console.log(instrucciones.Contenido[i].Texto)
+                    menucasos.agregarItemMenu({ name: instrucciones.Contenido[i].Texto, label:instrucciones.Contenido[i].Saltar, tam:35})
+
+                }
+
+                rect.enabled=false
+                menucasos.visible=true
+
+
                 break
 
-             case "Saltar":
-                var respaldo = 0
-                 var saltaren = instrucciones.Saltar
-                 console.log(saltaren)
-                 while(true){
-                        console.log("valor: " + respaldo)
-                       if(EvaluarHistoria.tipoDato(respaldo) === "Label"){
-                            if(EvaluarHistoria.contenido(respaldo).Label === saltaren){
+            case "Fin":
+                val = 0
+                rect.visible=false
+                img2.visible=false
+                menuLen.visible=true
+                break
 
-                               if (totalHistorias > respaldo){
-                                    val = respaldo
-                                    val++
-                                    runJS()
-                                    val--;
-
-                                }
-                                break
-                            }
-                       }
-                           respaldo++
-                    }
-                 break
+            case "Saltar":
+               buscarLabel(instrucciones.Saltar)
+                break
 
             default:
-
                 break
 
             }
             val++
         }
     }
+
+    function buscarLabel(busca){
+        var posicionNovela = EvaluarHistoria.buscarLabel(busca)
+        val = posicionNovela[0]
+
+        img2.visible=false; //oculta la imagen  del personaje
+        menucasos.limpiarItemMenu() //limpia el contenido del menu
+        rectaux.visible=true //se muestra el cuadro de dialogo
+
+        runJS()
+
+    }
+
 }
